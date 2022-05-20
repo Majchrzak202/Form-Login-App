@@ -1,0 +1,13 @@
+.footer {
+    display: flex;
+    min-height: 4em;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: hsla(336.8181818181818, 84.62%, 30.59%, 1.00);
+}
+
+.paragraph{
+    margin-right: 15px;
+    color: aliceblue;
+}
