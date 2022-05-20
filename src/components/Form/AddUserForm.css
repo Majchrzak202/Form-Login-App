@@ -1,0 +1,78 @@
+.section-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 25px;
+  margin-bottom: 65px;
+  min-height: 80vh;
+}
+
+.new-user label {
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.new-user input {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 20rem;
+  max-width: 100%;
+}
+
+.div-form-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.form-button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14px 24px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
+    -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  color: #fff;
+}
+
+.submit-mesage {
+  display: flex;
+  min-height: 80vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-mesage h1 {
+    text-align: center;
+}
+
+.submit-mesage p {
+    text-align: center;
+}
+
+.submit-mesage div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-pic {
+    max-width: 50px;
+    max-height: 50px;
+}
