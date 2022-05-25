@@ -9,8 +9,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const [isSubmited, setIsSubmited] = useState(false);
-  const [users, setUsers] = useState([])
-  const {isAuthenticated} = useAuth0()
+  const [users, setUsers] = useState([]);
+  const { isAuthenticated, user } = useAuth0();
 
   useEffect(() => {
     fetch(
@@ -47,14 +47,16 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      { !isAuthenticated && <Header isSubmited={isSubmited} />}
-      {!isAuthenticated && <AddUserForm
-        isSubmited={isSubmited}
-        setIsSubmited={setIsSubmited}
-        saveUserData={saveUserData}
-      />}
-      {isAuthenticated && <UserPanel users={users}/>}
+      <Navbar isAuthenticated={isAuthenticated} user={user} />
+      {!isAuthenticated && <Header isSubmited={isSubmited} />}
+      {!isAuthenticated && (
+        <AddUserForm
+          isSubmited={isSubmited}
+          setIsSubmited={setIsSubmited}
+          saveUserData={saveUserData}
+        />
+      )}
+      {isAuthenticated && <UserPanel user={user} users={users} />}
       <Footer />
     </div>
   );
