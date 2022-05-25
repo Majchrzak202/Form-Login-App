@@ -6,7 +6,7 @@ import LogoutButon from "../Auth0/LogoutButton";
 
 const Navbar = ({isAuthenticated, user}) => {
 
-  console.log(user)
+  
   return (
       <div className='navbar'>
           {/* <img src="https://cryptologos.cc/logos/bitcoin-cash-bch-logo.png?v=022" className='logo' alt='logo'/> */}

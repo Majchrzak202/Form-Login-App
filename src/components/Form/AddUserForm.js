@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import "./AddUserForm.css";
+import { motion } from "framer-motion";
 
 const formReducer = (state, action) => {
   if (action.type === "HANDLE_INPUT_TEXT") {
@@ -34,8 +35,6 @@ const AddUserForm = ({ saveUserData, setIsSubmited, isSubmited }) => {
     });
   };
 
-  
-
   const submitHandler = (event) => {
     event.preventDefault();
 
@@ -47,11 +46,9 @@ const AddUserForm = ({ saveUserData, setIsSubmited, isSubmited }) => {
     };
 
     saveUserData(userData);
-    setIsSubmited(true)
+    setIsSubmited(true);
     handleClearForm();
   };
-
- 
 
   return isSubmited ? (
     <div className="submit-mesage">
@@ -70,7 +67,11 @@ const AddUserForm = ({ saveUserData, setIsSubmited, isSubmited }) => {
       </div>
     </div>
   ) : (
-    <div className="section-form">
+    <motion.div
+      animate={{ y: -40 }}
+      transition={{ type: "spring", stiffness: 100, delay: 1.8 }}
+      className="section-form"
+    >
       <form>
         <div className="new-user">
           <label>Name</label>
@@ -109,12 +110,20 @@ const AddUserForm = ({ saveUserData, setIsSubmited, isSubmited }) => {
           />
         </div>
         <div className="div-form-button">
-          <button onClick={submitHandler} className="form-button">
+          <motion.button
+            whileHover={{
+              opacity: 0.7,
+              scale: 1.04,
+              transition: { duration: 0.3 },
+            }}
+            onClick={submitHandler}
+            className="form-button"
+          >
             Register!
-          </button>
+          </motion.button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

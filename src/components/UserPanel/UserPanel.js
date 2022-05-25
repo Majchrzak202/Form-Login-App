@@ -2,6 +2,7 @@ import React from "react";
 import "./UserPanel.css";
 import UsersList from "./UsersList";
 import ImageForm from "../ImageAdd/ImageForm";
+import { motion } from "framer-motion";
 
 const UserPanel = ({ users, user }) => {
   const date = new Date(user.updated_at);
@@ -16,7 +17,12 @@ const UserPanel = ({ users, user }) => {
         </h1>
         <p>
           You're referal status is{" "}
-          <span style={{ color: "gold", fontWeight: 800 }}>GOLDEN</span>
+          <motion.span
+            whileHover={{scale:1.5}}
+            style={{ color: "gold", fontWeight: 800 }}
+          >
+            GOLDEN
+          </motion.span>
         </p>
       </div>
 
