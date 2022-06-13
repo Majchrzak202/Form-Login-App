@@ -18,7 +18,7 @@ const UserPanel = ({ users, user }) => {
         <p>
           You're referal status is{" "}
           <motion.span
-            whileHover={{scale:1.5}}
+            whileHover={{ scale: 1.5 }}
             style={{ color: "gold", fontWeight: 800 }}
           >
             GOLDEN
@@ -30,6 +30,7 @@ const UserPanel = ({ users, user }) => {
         <UsersList users={users} />
       </div>
       <ImageForm />
+      <div></div>
     </div>
   );
 };
