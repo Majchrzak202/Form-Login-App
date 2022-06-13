@@ -4,16 +4,10 @@ import UsersList from "./UsersList";
 import ImageForm from "../ImageAdd/ImageForm";
 import { motion } from "framer-motion";
 
-const UserPanel = ({ users, user, fetchData }) => {
+const UserPanel = ({ users, user }) => {
   const date = new Date(user.updated_at);
   const year = date.getFullYear();
   const month = date.toLocaleString("en-US", { month: "long" });
-
-
-  const fetchHandler = () => {
-    fetchData()
-    console.log('clicked')
-  }
 
   return (
     <div className="panel">
@@ -24,7 +18,7 @@ const UserPanel = ({ users, user, fetchData }) => {
         <p>
           You're referal status is{" "}
           <motion.span
-            whileHover={{scale:1.5}}
+            whileHover={{ scale: 1.5 }}
             style={{ color: "gold", fontWeight: 800 }}
           >
             GOLDEN
@@ -36,9 +30,7 @@ const UserPanel = ({ users, user, fetchData }) => {
         <UsersList users={users} />
       </div>
       <ImageForm />
-      <div>
-        <button onClick={fetchHandler}>Click </button>
-      </div>
+      <div></div>
     </div>
   );
 };
