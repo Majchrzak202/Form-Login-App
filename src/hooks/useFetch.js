@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import { useCallback } from "react";
 
-const useFetch = (requestConfig, applyData) => {
-
-
-  const sendRequest = async () => {
-    const response = await fetch(requestConfig.url);
+const useFetch = () => {
+  const sendRequest = useCallback(async (requestConfig, applyData) => {
+    const response = await fetch(requestConfig.url, {
+      method: requestConfig.method ? requestConfig.method : 'GET',
+      headers: requestConfig.headers ? requestConfig.headers : {}, 
+      body: requestConfig.body ? JSON.stringify(requestConfig.body) : null 
+    });
 
     if (!response.ok) {
       throw new Error("Request failed");
@@ -12,13 +14,10 @@ const useFetch = (requestConfig, applyData) => {
 
     const data = await response.json();
 
-    applyData(data)
-  };
+    applyData(data);
+  }, []);
 
-
-
-  return {sendRequest: sendRequest}
+  return { sendRequest };
 };
 
-
-export default useFetch; 
+export default useFetch;
