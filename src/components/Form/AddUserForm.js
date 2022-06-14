@@ -1,33 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import "./AddUserForm.css";
 import { motion } from "framer-motion";
+import useForm from "../hooks/useForm";
 
 const AddUserForm = ({ saveUserData, setIsSubmited, isSubmited }) => {
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredNameIsTouched, setEnteredNameIsTouched] = useState(false);
+  const {
+    enteredValue: enteredName,
+    hasError: nameInputIsInvalid,
+    valueInputBlurHandler: blurNameChangeHandler,
+    valueChangeHandler: handleNameChange,
+    valueIsValid: enteredNameIsValid,
+    reset: resetNameInput,
+  } = useForm((value) => value.trim() !== "");
 
-  const [enteredSurname, setEnteredSurname] = useState("");
-  const [enteredSurnameIsTouched, setEnteredSurnameIsTouched] = useState(false);
+  const {
+    enteredValue: enteredSurname,
+    hasError: surnameInputIsInvalid,
+    valueInputBlurHandler: blurSurnameHandler,
+    valueChangeHandler: handleSurnameChange,
+    valueIsValid: enteredSurnameIsValid,
+    reset: resetSurnameInput,
+  } = useForm((value) => value.trim() !== "");
 
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredEmailIsTouched, setEnteredEmailIsTouched] = useState(false);
+  const {
+    enteredValue: enteredEmail,
+    hasError: emailInputIsInvalid,
+    valueInputBlurHandler: blurEmailHandler,
+    valueChangeHandler: handleEmailChange,
+    valueIsValid: enteredEmailIsValid,
+    reset: resetEmailInput,
+  } = useForm((value) => value.trim() !== "" && value.includes("@"));
 
-  const [enteredPhone, setEnteredPhone] = useState("");
-  const [enteredPhoneIsTouched, setEnteredPhoneIsTouched] = useState(false);
-
-  const enteredNameIsValid = enteredName.trim() !== "";
-  const nameInputIsInvalid = !enteredNameIsValid && enteredNameIsTouched;
-
-  const enteredSurnameIsValid = enteredSurname.trim() !== "";
-  const surnameInputIsInvalid =
-    !enteredSurnameIsValid && enteredSurnameIsTouched;
-
-  const enteredEmailIsValid =
-    enteredEmail.trim() !== "" && enteredEmail.includes("@");
-  const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailIsTouched;
-
-  const enteredPhoneIsValid = enteredPhone.trim() !== "" && enteredPhone.length === 9;
-  const phoneInputIsInvalid = !enteredPhoneIsValid && enteredPhoneIsTouched;
+  const {
+    enteredValue: enteredPhone,
+    hasError: phoneInputIsInvalid,
+    valueInputBlurHandler: blurPhoneHandler,
+    valueChangeHandler: handlePhoneChange,
+    valueIsValid: enteredPhoneIsValid,
+    reset: resetPhoneInput,
+  } = useForm((value) => value.trim().length === 9);
 
   let formIsValid = false;
   if (
@@ -39,45 +50,8 @@ const AddUserForm = ({ saveUserData, setIsSubmited, isSubmited }) => {
     formIsValid = true;
   }
 
-  const handleNameChange = (e) => {
-    setEnteredName(e.target.value);
-  };
-
-  const blurNameChangeHandler = () => {
-    setEnteredNameIsTouched(true);
-  };
-
-  const handleSurnameChange = (e) => {
-    setEnteredSurname(e.target.value);
-  };
-
-  const blurSurnameHandler = () => {
-    setEnteredSurnameIsTouched(true);
-  };
-
-  const handleEmailChange = (e) => {
-    setEnteredEmail(e.target.value);
-  };
-
-  const blurEmailHandler = () => {
-    setEnteredEmailIsTouched(true);
-  };
-
-  const handlePhoneChange = (e) => {
-    setEnteredPhone(e.target.value);
-  };
-
-  const blurPhoneHandler = () => {
-    setEnteredPhoneIsTouched(true);
-  };
-
   const submitHandler = (event) => {
     event.preventDefault();
-
-    setEnteredNameIsTouched(true);
-    setEnteredSurnameIsTouched(true);
-    setEnteredEmailIsTouched(true);
-    setEnteredPhoneIsTouched(true);
 
     if (
       !enteredNameIsValid ||
@@ -97,14 +71,10 @@ const AddUserForm = ({ saveUserData, setIsSubmited, isSubmited }) => {
 
     saveUserData(userData);
     setIsSubmited(true);
-    setEnteredName("");
-    setEnteredSurname("");
-    setEnteredEmail("");
-    setEnteredPhone("");
-    setEnteredNameIsTouched(false);
-    setEnteredSurnameIsTouched(false);
-    setEnteredEmailIsTouched(false);
-    setEnteredPhoneIsTouched(false);
+    resetNameInput();
+    resetSurnameInput();
+    resetEmailInput();
+    resetPhoneInput();
   };
 
   const inputNameFormControl = nameInputIsInvalid ? "invalid" : "";
