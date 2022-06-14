@@ -22,6 +22,11 @@
   max-width: 100%;
 }
 
+.invalid {
+  border: 1px solid #b40e0e;
+  background-color: #fddddd;
+}
+
 .div-form-button {
   display: flex;
   justify-content: center;
@@ -47,8 +52,16 @@
     rgb(215, 4, 102) 100%
   );
   color: #fff;
- 
 }
+
+/* .form-button:disabled,
+.form-button:disabled:hover,
+.form-button:disabled:active {
+  background-color: #ccc;
+  color: black;
+  border-color: #ccc;
+  cursor: not-allowed;
+} */
 
 .submit-mesage {
   display: flex;
@@ -59,21 +72,21 @@
 }
 
 .submit-mesage h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .submit-mesage p {
-    text-align: center;
+  text-align: center;
 }
 
 .submit-mesage div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo-pic {
-    max-width: 50px;
-    max-height: 50px;
+  max-width: 50px;
+  max-height: 50px;
 }

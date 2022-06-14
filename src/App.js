@@ -18,7 +18,7 @@ function App() {
   const { isAuthenticated, user } = useAuth0();
 
   const { sendRequest: fetchData } = useFetch();
-  const { sendRequest: postData } = useFetch()
+  const { sendRequest: postData } = useFetch();
 
   useEffect(() => {
     const applyData = (data) => {
@@ -41,20 +41,21 @@ function App() {
   }, [fetchData]);
 
   const postingData = () => {
-    console.log('Data posted to Database')
-  }
+    console.log("Data posted to Database");
+  };
 
   const saveUserData = (data) => {
-    postData({url: api.base, method: 'POST', headers: {
-      "Content-Type": "application/json",
-      }, body: data}, postingData )
-    /* fetch(
-      "https://login-form-test-project-default-rtdb.europe-west1.firebasedatabase.app/users.json",
+    postData(
       {
+        url: api.base,
         method: "POST",
-        body: JSON.stringify(data),
-      }
-    ); */
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: data,
+      },
+      postingData
+    );
   };
 
   return (
