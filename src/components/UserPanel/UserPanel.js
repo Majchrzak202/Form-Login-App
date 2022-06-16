@@ -29,8 +29,6 @@ const UserPanel = ({ users, user }) => {
       <div className="panel">
         <UsersList users={users} />
       </div>
-      <ImageForm />
-      <div></div>
     </div>
   );
 };
