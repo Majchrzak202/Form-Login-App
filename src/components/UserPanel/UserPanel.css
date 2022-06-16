@@ -1,12 +1,19 @@
 .panel {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 90vh;
   margin-top: 80px;
+  margin-bottom: 50px;
 }
 
 .panel p {
   text-align: center;
+  min-height: 30%;
+}
+
+.user-welcome {
+  min-height: 50%;
+
 }
