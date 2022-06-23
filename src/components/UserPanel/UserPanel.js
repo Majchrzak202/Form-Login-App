@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserPanel.css";
 import UsersList from "./UsersList";
-import ImageForm from "../ImageAdd/ImageForm";
+
 import { motion } from "framer-motion";
 
 const UserPanel = ({ users, user }) => {
