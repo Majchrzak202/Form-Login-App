@@ -7,8 +7,9 @@ const firebaseConfig = {
   projectId: "fir-in-loginform-react",
   storageBucket: "fir-in-loginform-react.appspot.com",
   messagingSenderId: "518967437707",
-  appId: "1:518967437707:web:89fe3be65f408da72ce78e",
+  appId: "1:518967437707:web:89fe3be65f408da72ce78e"
 };
+
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

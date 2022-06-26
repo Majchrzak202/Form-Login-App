@@ -1,8 +1,9 @@
 import React from "react";
+import UserPanel from "../UserPanel/UserPanel";
 
 const Home = () => {
     return (<div>
-        HOME
+       <UserPanel/>
     </div>)
 }
 
