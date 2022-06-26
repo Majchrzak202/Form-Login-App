@@ -3,13 +3,13 @@ import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/UserAuthContextProvider";
 
-const Navbar = () => {
+const Navbar = ({showLoginModal}) => {
   const navigate = useNavigate();
   const { logout, user } = useAuth();
 
   const loginHandler = (e) => {
     e.preventDefault();
-    navigate("/login");
+    showLoginModal(true)
   };
 
   const logoutHandler = (e) => {
