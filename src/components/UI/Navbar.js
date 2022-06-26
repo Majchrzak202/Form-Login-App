@@ -1,22 +1,39 @@
 import React from "react";
 import "./Navbar.css";
-import LoginButton from "../Auth0/LoginButton";
-import LogoutButon from "../Auth0/LogoutButton";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/UserAuthContextProvider";
 
+const Navbar = () => {
+  const navigate = useNavigate();
+  const { logout, user } = useAuth();
 
-const Navbar = ({isAuthenticated, user}) => {
+  const loginHandler = (e) => {
+    e.preventDefault();
+    navigate("/login");
+  };
 
-  
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    logout()
+    navigate('/login')
+  };
+
   return (
-      <div className='navbar'>
-          {/* <img src="https://cryptologos.cc/logos/bitcoin-cash-bch-logo.png?v=022" className='logo' alt='logo'/> */}
-          { isAuthenticated && <p className='text-block'>  {user.name}</p>}
-          <img src="https://cryptologos.cc/logos/shiba-inu-shib-logo.png?v=022" className='user-img' alt='userLogo'></img>
-          <LoginButton/>
-          <LogoutButon/>
-         {/*  <button className='button'>LOGIN</button> */}
-      </div>
-  )
+    <div className="navbar">
+      <img
+        src="https://cryptologos.cc/logos/shiba-inu-shib-logo.png?v=022"
+        className="user-img"
+        alt="userLogo"
+      ></img>
+      { !user ? (<button onClick={loginHandler} className="button">
+        LOGIN
+      </button>) :
+      (<button onClick={logoutHandler} className="button">
+        LOGOUT
+      </button>)}
+      
+    </div>
+  );
 };
 
 export default Navbar;

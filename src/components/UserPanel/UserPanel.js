@@ -1,19 +1,19 @@
 import React from "react";
 import "./UserPanel.css";
 import UsersList from "./UsersList";
-import ImageForm from "../ImageAdd/ImageForm";
+
 import { motion } from "framer-motion";
 
-const UserPanel = ({ users, user }) => {
-  const date = new Date(user.updated_at);
+const UserPanel = ({ users }) => {
+  /* const date = new Date(user.updated_at);
   const year = date.getFullYear();
-  const month = date.toLocaleString("en-US", { month: "long" });
+  const month = date.toLocaleString("en-US", { month: "long" }); */
 
   return (
     <div className="panel">
       <div className="user-welcome">
         <h1>
-          Hi {user.given_name} youre with us from {month} {year}
+          Hi {'Mark'} youre with us from {'03'} {'2022'}
         </h1>
         <p>
           You're referal status is{" "}
@@ -27,7 +27,7 @@ const UserPanel = ({ users, user }) => {
       </div>
 
       <div className="panel">
-        <UsersList users={users} />
+        {/* <UsersList users={users} /> */}
       </div>
     </div>
   );
