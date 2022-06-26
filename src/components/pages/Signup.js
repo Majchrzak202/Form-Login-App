@@ -9,14 +9,14 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const { signUp } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const submitHandler = async (e) => {
     e.preventDefault();
     setError("");
     try {
       await signUp(email, password);
-      navigate('/login')
+      navigate("/login");
     } catch (err) {
       setError(err.message);
     }
@@ -26,7 +26,7 @@ const Signup = () => {
     <div className="signup">
       <div className="form">
         <h3>user Login</h3>
-    {error && error}
+        {error && error}
         <form>
           <div>
             <input
@@ -44,7 +44,9 @@ const Signup = () => {
         </form>
       </div>
       <div></div>
-      <div>Already have an account? <Link to='/login'>Login</Link></div>
+      <div>
+        Already have an account? <Link to="/login">Login</Link>
+      </div>
       <div>Forgot your password?</div>
     </div>
   );

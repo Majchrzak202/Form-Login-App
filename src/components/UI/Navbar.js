@@ -14,8 +14,8 @@ const Navbar = () => {
 
   const logoutHandler = (e) => {
     e.preventDefault();
-    logout()
-    navigate('/login')
+    logout();
+    navigate("/login");
   };
 
   return (
@@ -25,13 +25,15 @@ const Navbar = () => {
         className="user-img"
         alt="userLogo"
       ></img>
-      { !user ? (<button onClick={loginHandler} className="button">
-        LOGIN
-      </button>) :
-      (<button onClick={logoutHandler} className="button">
-        LOGOUT
-      </button>)}
-      
+      {!user ? (
+        <button onClick={loginHandler} className="button">
+          LOGIN
+        </button>
+      ) : (
+        <button onClick={logoutHandler} className="button">
+          LOGOUT
+        </button>
+      )}
     </div>
   );
 };
