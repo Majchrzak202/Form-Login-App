@@ -25,7 +25,7 @@ const Signup = () => {
   return (
     <div className="signup">
       <div className="form">
-        <h3>user Login</h3>
+        <h3>user signup</h3>
         {error && error}
         <form>
           <div>

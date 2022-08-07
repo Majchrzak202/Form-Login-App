@@ -18,8 +18,16 @@ const api = {
 };
 
 function App() {
-  const [isSubmited, setIsSubmited] = useState(false);
   const [users, setUsers] = useState([]);
+  const [loginIsShown, setLoginIsShown] = useState(false);
+
+  const showLoginModal = () => {
+    setLoginIsShown(true);
+  };
+
+  const hideLoginModal = () => {
+    setLoginIsShown(false);
+  };
 
   /* const { sendRequest: fetchData } = useFetch(); */
   const { sendRequest: postData } = useFetch();
@@ -64,10 +72,10 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar showLoginModal={showLoginModal} />
+      {loginIsShown && <Login hideLoginModal={hideLoginModal} />}
       <Routes>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/login" element={<Login />}></Route>
         <Route
           path="/home"
           element={
@@ -77,15 +85,8 @@ function App() {
           }
         ></Route>
       </Routes>
-
-      {<Header isSubmited={isSubmited} />}
-      {
-        <AddUserForm
-          isSubmited={isSubmited}
-          setIsSubmited={setIsSubmited}
-          saveUserData={saveUserData}
-        />
-      }
+      <Header />
+      <AddUserForm saveUserData={saveUserData} />
       <Footer />
     </div>
   );

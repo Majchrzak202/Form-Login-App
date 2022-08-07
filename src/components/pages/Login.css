@@ -1,7 +1,23 @@
 .login {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 30vh;
+  min-width: 25%;
   justify-content: center;
   align-items: center;
+  background-color: aliceblue;
+  border: solid;
+  border-radius: 1%;
+  padding-bottom: 15px;
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+.mundek {
+  min-height: 200px;
+  min-width: 400px;
 }
